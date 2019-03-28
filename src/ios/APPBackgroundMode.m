@@ -262,13 +262,6 @@ NSString* const kAPPBackgroundEventDeactivate = @"deactivate";
     ^(CDVPlugin *self, NSDictionary *settings) {
         id obj = ((id (*)(id, SEL, NSDictionary*))_imp)(self, _cmd, settings);
 
-        if ([settings objectForKey:@"wksuspendinbackground"]) {
-            NSLog(@"exist");
-        } else {
-            [obj setValue:[NSNumber numberWithBool:YES]
-                   forKey:[APPBackgroundMode wkProperty]];
-        }
-
         [obj setValue:[NSNumber numberWithBool:NO]
                forKey:@"requiresUserActionForMediaPlayback"];
 
